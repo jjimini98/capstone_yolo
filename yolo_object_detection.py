@@ -11,8 +11,8 @@ output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # Loading image
-img = cv2.imread("room_ser.jpg")
-img = cv2.resize(img, None, fx=0.4, fy=0.4)
+img = cv2.imread("sample.png")
+# img = cv2.resize(img, None, fx=0.4, fy=0.4)
 height, width, channels = img.shape
 
 # Detecting objects
@@ -46,7 +46,7 @@ for out in outs:
             class_ids.append(class_id)
 
 indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
-print(indexes)
+# print(indexes)
 font = cv2.FONT_HERSHEY_PLAIN
 for i in range(len(boxes)):
     if i in indexes:
